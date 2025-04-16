@@ -1,0 +1,37 @@
+<h2>Employee Dashboard</h2>
+
+<!-- Add Form -->
+<div>
+  <h3>Add New Employee</h3>
+  <input placeholder="Name" [(ngModel)]="newEmployee.name" />
+  <input placeholder="Address" [(ngModel)]="newEmployee.address" />
+  <input type="date" [(ngModel)]="newEmployee.dateOfBirth" />
+  <input placeholder="Phone" [(ngModel)]="newEmployee.phoneNo" />
+  <input placeholder="Title" [(ngModel)]="newEmployee.title" />
+  <input placeholder="SIN" [(ngModel)]="newEmployee.sin" />
+  <button (click)="addEmployee()">Add</button>
+</div>
+
+<hr />
+
+<!-- Employee Table -->
+<table border="1" cellspacing="0" cellpadding="8">
+  <tr>
+    <th>Name</th>
+    <th>Title</th>
+    <th>DOB</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>SIN</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let emp of employees">
+    <td>{{ emp.name }}</td>
+    <td>{{ emp.title }}</td>
+    <td>{{ emp.dateOfBirth | date }}</td>
+    <td>{{ emp.phoneNo }}</td>
+    <td>{{ emp.address }}</td>
+    <td>{{ emp.sin }}</td>
+    <td><button (click)="deleteEmployee(emp.id)">Delete</button></td>
+  </tr>
+</table>
